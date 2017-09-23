@@ -1,0 +1,1 @@
+Get-VM | Select Name, id, @{Name="IP"; Expression={$_.VMHost | Get-VMHostNetwork | Select -ExpandProperty VirtualNic | where {$_.PortGroupName  -match "dvpgManagement"} | Select IP}}
